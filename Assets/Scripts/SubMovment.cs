@@ -27,10 +27,20 @@ public class SubMovment : MonoBehaviour
     public float StunedVerticalSpeed;
 
     public bool canMove = true;
+
+    private string MovementAxisName;
+    private string TurnAxisName;
+
+    private void Awake()
+    {
+        Rigidbody = GetComponent<Rigidbody>();
+    }
+
     // Use this for initialization
     void Start ()
     {
-        Rigidbody = GetComponent<Rigidbody>();
+        MovementAxisName = "Vertical" + PlayerNumber;
+        TurnAxisName = "Horizontal" + PlayerNumber;
     }
 	
 	// Update is called once per frame
